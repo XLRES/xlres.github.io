@@ -1,0 +1,11 @@
+# Build settings
+markdown: redcarpet
+highlighter: pygments
+#gems:
+#  - jemoji
+redcarpet:
+  extensions:
+    - tables
+    - autolink
+
+

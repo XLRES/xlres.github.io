@@ -1,0 +1,228 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ol, ul {
+  /*list-style: none;*/
+  margin-left: 30px;
+}
+
+nav ul, ul.posts {
+  list-style: none;
+  margin-left: 0;
+}
+
+.post, .posts {
+  margin-top: 30px;
+}
+
+a {
+  color: #777;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* reset */
+
+body {
+  color: #555;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica,  "Microsoft YaHei", Tohoma, Arial;
+  font-size: 19px;
+  padding: 15px 15px 0;
+  line-height: 1.6em;
+  background: #fefefe;
+}
+
+header, footer {
+  text-align: center;
+  padding: 50px;
+}
+
+header {
+  font-size: 30px;
+  line-height: 40px;
+}
+
+header li {
+  display: inline-block;
+  border-left: 1px dashed #ccc;
+  padding: 0 40px;
+}
+
+@media (max-width: 850px){
+  header li {
+    display: block;
+    float: left;
+    margin: 10px;
+    padding: 10px;
+    border: 0;
+  }
+  header a {
+    color: #aaa;
+  }
+  header {
+    padding: 0;
+  }
+  header:after {
+    display: table;
+    content: '';
+    clear: both;
+  }
+}
+
+
+header ul :first-child {
+  border-left: 0;
+}
+
+.emoji {
+  height: 20px;
+  vertical-align: text-top;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #dededc;
+  margin: 20px 0;
+}
+
+.resume h1, .resume h2, .resume h3 {
+  text-align: left;
+}
+
+.resume h1 {
+  font-size: 34px;
+  border-bottom: 1px solid #ccc;
+  margin: 10px 0;
+  line-height: 1.8;
+}
+
+.resume h2 {
+  font-size: 26px;
+}
+
+
+h1, h2, h3, h4 {
+  color: #444;
+}
+
+h1 {
+  font-size: 50px;
+  line-height: 60px;
+}
+
+h2 {
+  line-height: 50px;
+  margin-top: 80px;
+}
+
+h3 {
+  line-height: 45px;
+  margin-top: 60px;
+}
+
+
+.inner {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  display: block;
+}
+
+time {
+  font-size: 18px;
+  color: #999;
+  font-family: Consolas;
+}
+
+article code, article a {
+  word-break: break-all;
+}
+
+article p {
+  margin-bottom: 30px;
+}
+
+article img {
+  max-width: 100%;
+}
+
+article pre, article ul {
+  margin-bottom: 30px;
+}
+
+code {
+  font-family: Consolas, monospace, 微软雅黑;
+}
+
+code .s1, code .mi {
+  color: #eb7a00;
+}
+
+code .k, code .kd {
+  color: #9e2c31;
+}
+
+code .nx {
+  color: #008000;
+}
+
+pre {
+  font-family: Consolas;
+  padding: 20px 18px;
+  background-color: #f8f8f8;
+  overflow-x: auto;
+  color: #666;
+  line-height: 24px;
+  font-size: 16px;
+}
+
+p code {
+  padding: 0 2px;
+  font-size: .9em;
+}
+
+blockquote {
+  border-left: 3px solid #777;
+  padding-left: 20px;
+  font-size: 18px;
+  color: #666;
+}
+
+article a {
+  color: #57ad68;
+  padding: 2px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  margin-top: 30px;
+  color: #777;
+  font-size: 14px;
+  font-family: Consolas;
+  border-top: 1px solid #eee;
+}
+
+/* table */
+th, td {
+  text-align: center;
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+  margin: 0;
+  max-width: 280px;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+tr:nth-child(2n) {
+  background: #f8f8f8;
+}
