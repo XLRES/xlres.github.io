@@ -7,11 +7,18 @@ tag:
   - lisp
 ---
 
+2015.03.12  
 开始读SICP了嗯。  
 虽然只看了第一章但是函数式编程真是奇妙。  
 已经感受到了lisp的神奇之处了。
   
-#程序
+
+2015.04.23   
+回头看看一个多月前写的东西决定还是重新整理丰富一下比较好……  
+
+---
+
+###程序
 
 >每一种强力的语言都提供了三种机制：
 
@@ -25,27 +32,94 @@ tag:
 ###表达式  
 
 scheme使用前缀表达式，如：  
+```
 	(+ (* 3 5) (- 10 6))
-
+```
 ###define
 
 define是最简单的抽象方法。  
-定义变量：  
-	(define pi 3.141159)  
+定义变量：   
+```
+	(define pi 3.141159)    
+```	  
 定义过程：  
+```
 	(define (square x) (* x x))  
-
+```
 ###条件表达式   
 
 ```
-#include <stdio.h>  
-int main ()  
-{  
-	printf ("hello world");  
-	return 0;  
-}  
+(define (abs x)
+	(cond ((> x 0) x)
+		  ((= x 0) 0)
+		  ((< x 0) (-x))))
+
+(define (abs x)
+	(if (< x 0)
+		(-x)
+		x))
 ```
 		
+### 逻辑复合运算符
+仍然是前缀表达式写法，不禁想起了<html><del>天国的</del></html>logo语言。  
+刚开始学C的时候某老师似乎就说过logo的逻辑运算前缀写法比较奇葩，
+一般都是中缀。当时并不以为意，最近才看到原来logo是lisp的一种方言。  
+<html>
+<del>从那么小开始就接触函数式编程的我如今找不到工作怎么想都是世界的错</del>
+<html>  
+
+```
+(and (> x 5) (< x 10))
+(or (> x y) (= x y))
+```
+
+### 黑箱
+>过程定义应该能隐藏一些细节。
+>用户在使用一个时应该不需要去弄清如何实现。   
+
+###过程作为参数/作为返回值
+```
+(define (sum term a next b)
+	(if (> a b)
+		0
+		(+	(term a)
+			(sum term (next a) next b))))
+
+(define (inc n) (+ n 1))
+
+(define (cube n) (* n n n))
+
+(define (sum-cubes a b)
+	(sum cube a inc b)
+
+(sum-cube 1 10)
+55
+```
+过程inc过程就是简单的自增，cube则是单纯计算立方。  
+而过程sum-cubes将cube作为参数term，inc作为参数next传给了sum。  
+可以看到sum中累加了term处理a得到的值，
+并用inc作为a在递归过程中变化的规则。  
+可以说sum-cubes 是sum的一个实例，
+实例化的部分就是*累加值的计算规则*和*自变量递进的计算规则*  
+这两个规则就是sum接收到的两个过程，cube和inc  
+当然，sum-cubes这个实例同样是过程，而不是表达式或数值。  
+
+### lamda构造过程
+如上例中sum-cubes可以写作
+```
+(define (sum-cubes a b)
+	(sum (lambda (x) (* x x x)) a (lambda (x) (+ x 1)) b))
+```
+即直接用(lambda (x) (+ x 1))来代替inc。  
+也就是说lambda可以直接构造过程。  
+顺便，lambda构造的过程可用于组合式的运算符，如：
+```
+((lambda (x y z) (+ x y (square z))) 1 2 3)
+12
+```
+仍然是前缀表达式结果。  
+
+
 ##环境与组合式   
 >实际上，构造一个复杂的程序，也就是为了去一步步地创建出越来越复杂的计算性对象。
 >解释器使这种逐步的程序构造过程变得非常方便，因为我们可以通过一系列交互式动作，逐步创建起所需要的名字-对象关联。
