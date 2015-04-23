@@ -7,5 +7,7 @@ redcarpet:
   extensions:
     - tables
     - autolink
-
+    - no_intra_emphasis
+    - strikethrough 
+    - fenced_code_blocks
 
