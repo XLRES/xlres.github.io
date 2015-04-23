@@ -1,6 +1,6 @@
 ---
 data: 18:15 2015/04/23
-title: 阿里实习生面试经理及总结
+title: 阿里实习生面试经历及总结
 layout: post
 tag:
   - C
