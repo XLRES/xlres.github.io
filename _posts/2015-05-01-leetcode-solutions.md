@@ -13,17 +13,18 @@ tags:
 
 ---
 
-##19 Remove Nth Node From End of List
->Given a linked list, 
->remove the nth node from the end of list and return its head.  
->For example,  
+## \#19 Remove Nth Node From End of List
+> Given a linked list, 
+> remove the nth node from the end of list and return its head. 
+>
+> For example,  
 >>  Given linked list: 1-\>2-\>3-\>4-\>5, and n = 2.  
 >>  After removing the second node from the end, 
 >>  the linked list becomes 1-\>2-\>3-\>5.  
 >
->Note:  
->Given n will always be valid.  
->Try to do this in one pass.  
+> Note:  
+> Given n will always be valid. 
+> Try to do this in one pass.  
 
 大体上来说就是删除链表中倒数第n个元素，
 并没有任何难度。  
@@ -62,20 +63,26 @@ def removeNthFromEnd(self, head, n):
 
 ---
 
-##205 Isomorphic Strings
->Given two strings s and t, determine if they are isomorphic.  
->Two strings are isomorphic if the characters in s
->can be replaced to get t.  
->All occurrences of a character must be replaced 
->with another character while preserving the order of characters.   
->No two characters may map to the same character
->but a character may map to itself.  
->For example,  
->Given "egg", "add", return true.  
->Given "foo", "bar", return false.  
->Given "paper", "title", return true.  
->Note:  
->You may assume both s and t have the same length.  
+## \#205 Isomorphic Strings
+> Given two strings s and t, determine if they are isomorphic. 
+>
+> Two strings are isomorphic if the characters in s>
+> can be replaced to get t.  
+>
+> All occurrences of a character must be replaced 
+> with another character while preserving the order of characters.
+> No two characters may map to the same character
+> but a character may map to itself.  
+>
+> For example,  
+> Given "egg", "add", return true.  
+>
+> Given "foo", "bar", return false.  
+>
+> Given "paper", "title", return true.  
+>
+> Note:  
+> You may assume both s and t have the same length.  
 
 Tags 上挂了 Hash Table 把我吓了个半死，这刚第二题呢……不过其实没有用到。
 其实只要记录下 s 到 t 的每个字母的映射，看看有没有矛盾就行。  
@@ -97,7 +104,7 @@ def isIsomorphic(self, s, t):
 
 ```
 不过这么写其实是有问题的，对于诸如
->s = 'ab'
+>s = 'ab'  
 >t = 'aa'
 
 这类问题无法正确判断，因为没有对两个字符映射到同一个字符的情况做出检查。  
