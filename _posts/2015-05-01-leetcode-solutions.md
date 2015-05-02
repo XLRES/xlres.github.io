@@ -116,3 +116,69 @@ def isIsomorphic(self, s, t):
     print isisomorophic(s, t) and isisomorophic(t, s)
 ```
 
+---
+
+## \#202 Happy Number
+> Write an algorithm to determine if a number is "happy".  
+>
+> A happy number is a number defined by the following process: Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1. Those numbers for which this process ends in 1 are happy numbers.  
+>
+> Example: 19 is a happy number  
+> 1<sup>2</sup> + 9<sup>2</sup> = 82  
+> 8<sup>2</sup> + 2<sup>2</sup> = 68  
+> 6<sup>2</sup> + 8<sup>2</sup> = 100  
+> 1<sup>2</sup> + 0<sup>2</sup> + 0<sup>2</sup> = 1  
+>
+> Credits:  
+> Special thanks to @mithmatt and @ts for adding this problem and creating all test cases.  
+
+够简单，够 happy。  
+简单的数字处理，感谢Python提供了 in 这么好用的办法来判断包含。  
+另外原来leetcode并不存在一个固定的难度排列？那顺序就随便排了……
+
+```python
+def isHappy(self, n):
+    s = 0
+    numlist = []
+    while (n != 1 and not n in numlist):
+        numlist.append (n)
+        while (n > 0):
+            s += (n % 10)**2
+            n /= 10
+        n = s
+        s = 0
+    if n == 1: return True
+    else: return False
+```
+
+---
+
+## \#20 Valid Parentheses
+>Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.  
+
+>The brackets must close in the correct order, "()" and "()[]{}" are all valid but "(]" and "([)]" are not.  
+
+经典的括号匹配问题，解决方法也是经典的栈结构。  
+因为知道 Python 有队列模块（Queue），以为栈（Stack）也有封装好的模块，
+没想到其实没有……  
+不过列表（list）本身实现栈很方便，甚至已经提供了 append 和 pop 方法，
+top 可以用 list[-1] 实现，isEmpty 这种也很好处理，所以也没关系。  
+我在这里对于三种括号的判断应该有更优雅的写法，不过只有三种括号无所谓了。
+括号种类多的话用上索引，或者直接上 dict 更方便。  
+重复两次 stk:append(c) 是为了避免诸如第一个字符就是‘}’时stk[-1]报错的情况，
+不过总觉得应该有更好的处理方式才对。  
+
+```python
+def isValid(self, s):
+    stk = []
+    for c in s:
+        if len(stk) > 0:
+            if c == ')' and stk[-1] == '(' : stk.pop()
+            elif c == ']' and stk[-1] == '[': stk.pop()
+            elif c == '}' and stk[-1] == '{': stk.pop()
+            else: stk.append(c);
+        else: stk.append(c)
+        print stk
+    if len(stk) == 0: return True
+    else : return False
+```
