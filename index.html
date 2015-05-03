@@ -1,18 +1,18 @@
 ---
 layout: default
-title: 西木野综合病院
+title: XLRES's Blog
 ---
 
 <article>
 
 <div id="home">
-  <h1>Blog Posts</h1>
   <ul class="posts">
     {% for post in site.posts %}
 		{% if post.layout == 'post' %} 
 		<li>
 			<time>{{ post.date | date: "%Y-%m-%d" }}</time>
 			<a href="{{ post.url }}">{{ post.title }}</a>
+            <p>{{ post.excerpt }}</p>
 		</li>
 		{% endif %} 
     {% endfor %}

@@ -25,6 +25,7 @@ a {
   text-decoration: none;
 }
 
+
 /* reset */
 
 body {
@@ -36,41 +37,56 @@ body {
   background: #fefefe;
 }
 
-header, footer {
-  text-align: center;
-  padding: 50px;
-}
 
 header {
-  font-size: 30px;
-  line-height: 40px;
+  font-size: 18px;
+  line-height: 27px;
+  padding: 0 0 20px 0;
+}
+
+header .inner{
+    text-align: center;
+    line-height: 100%;
 }
 
 header li {
   display: inline-block;
   border-left: 1px dashed #ccc;
-  padding: 0 40px;
+  padding: 0 10px;
 }
 
-@media (max-width: 850px){
-  header li {
-    display: block;
+header .nav {
+    width: auto;
+    float: right;
+    position: relative;
+}
+
+header .logo{
+    width: auto;
     float: left;
-    margin: 10px;
-    padding: 10px;
-    border: 0;
-  }
-  header a {
-    color: #aaa;
-  }
-  header {
-    padding: 0;
-  }
-  header:after {
-    display: table;
-    content: '';
-    clear: both;
-  }
+    font-size: 30px;
+    position: relative;
+}
+
+footer{
+    padding: 40px;
+}
+
+footer img {
+    margin: 0 10px;
+    float: left;
+    width: auto;
+}
+footer .github {
+    float: left;
+    color: #999;
+    width: auto;
+}
+
+footer .statcounter {
+    text-align: right;
+    float: right;
+    width: auto;
 }
 
 
@@ -86,28 +102,9 @@ header ul :first-child {
 hr {
   border: 0;
   border-top: 1px solid #dededc;
-  margin: 20px 0;
+  margin: 15px 0;
 }
 
-.resume h1, .resume h2, .resume h3 {
-  text-align: left;
-}
-
-.resume h1 {
-  font-size: 34px;
-  border-bottom: 1px solid #ccc;
-  margin: 10px 0;
-  line-height: 1.8;
-}
-
-.resume h2 {
-  font-size: 26px;
-}
-
-
-h1, h2, h3, h4 {
-  color: #444;
-}
 
 h1 {
   font-size: 50px;
@@ -116,7 +113,7 @@ h1 {
 
 h2 {
   line-height: 50px;
-  margin-top: 80px;
+  margin-top: 60px;
 }
 
 h3 {
@@ -135,9 +132,12 @@ h3 {
 time {
   font-size: 18px;
   color: #999;
-  font-family: Consolas;
+  font-family: consolas;
 }
 
+article {
+    padding: 30px;
+}
 article code, article a {
   word-break: break-all;
 }
@@ -155,7 +155,7 @@ article pre, article ul {
 }
 
 code {
-  font-family: Consolas, monospace, 微软雅黑;
+  font-family: consolas, monospace, 微软雅黑;
 }
 
 code .s1, code .mi {
@@ -171,7 +171,7 @@ code .nx {
 }
 
 pre {
-  font-family: Consolas;
+  font-family: consolas;
   padding: 20px 18px;
   background-color: #f8f8f8;
   overflow-x: auto;
@@ -204,8 +204,8 @@ a:hover {
 footer {
   margin-top: 30px;
   color: #777;
-  font-size: 14px;
-  font-family: Consolas;
+  font-size: 18px;
+  font-family: consolas;
   border-top: 1px solid #eee;
 }
 
