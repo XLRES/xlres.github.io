@@ -182,3 +182,35 @@ def isValid(self, s):
     if len(stk) == 0: return True
     else : return False
 ```
+
+---
+
+## \#141 Linked List Cycle
+> Given a linked list, determine if it has a cycle in it.   
+> 
+> Follow up:  
+> Can you solve it without using extra space?  
+
+这还是个 Media 难度的题呢……  
+Tags 里被机智地写上了 Two Pointers所以……  
+想法很简单，两个指针，一个一次走一步，一个一次走两步，
+如果两个能再次相遇就存在循环。  
+值得注意的是各种边界条件，因为这个跪了好几次。  
+包括空链表，只有一个元素的链表所以不能有p.next.next 之类之类的。  
+不过都处理完了之后也就完全没难度了。  
+
+```python
+def hasCycle(self, head):
+    if head == None : return False
+    p1 = p2 = head
+    flag = 0
+    while(p1 != None and p2 != None and p2.next != None):
+        p1 = p1.next
+        p2 = p2.next.next
+        if (p1 == p2 ): 
+            flag = 1 
+            break
+    if flag : return True
+    else: return False
+```
+
