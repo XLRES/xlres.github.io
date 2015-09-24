@@ -199,6 +199,9 @@ Tags 里被机智地写上了 Two Pointers所以……
 包括空链表，只有一个元素的链表所以不能有p.next.next 之类之类的。  
 不过都处理完了之后也就完全没难度了。  
 
+2015.09.21 update: 最近的面试中问了这题，一模一样，都跟面试官说了这题我刷过还不给我换。
+光速装逼吓得他直接发了份offer给我……
+
 ```python
 def hasCycle(self, head):
     if head == None : return False
